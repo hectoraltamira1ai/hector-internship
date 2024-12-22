@@ -10,7 +10,7 @@ import axios from "axios";
 
 const ItemDetails = () => {
   // State to store the NFT item details
-  const [nftItem, setNftItem] = useState("");
+  const [nftItem, setNftItem] = useState({});
 
 // Extracting the NFT ID from the URL parameters
   const id = useParams().id;
@@ -35,7 +35,7 @@ const ItemDetails = () => {
 // Fetch the NFT item details
     getNftItemDetails();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, []);// run only once because dependency is empty
 
 
   // Rendering the component
@@ -51,7 +51,7 @@ const ItemDetails = () => {
               {/* Left column: Display the NFT image */}
                 <div className="col-md-6 text-center">
                   <img
-                    src={nftItem.nftImage}
+                    src={nftItem.nftImage} //display NFT image
                     className="img-fluid img-rounded mb-sm-30 nft-image"
                     alt=""
                   />
@@ -140,7 +140,7 @@ const ItemDetails = () => {
                 </div>
               </div>
             ) : (
-
+              // If nftItem is not available then,
               // Display skeleton loaders while data is being fetched
               <div className="row">
                 <div className="col-md-6 text-center">
