@@ -4,16 +4,12 @@ import axios from "axios";
 import Skeleton from "../UI/Skeleton"; //Skeleton component for loading placeholders while api data is fetched
 import CountDown from "../CountDownTimer"; // Countdown timer component used for items with expiry dates
 
-
-
 //Defining Functional components
 const ExploreItems = () => {
-
   //State variables
   const [itemCount, setItemCount] = useState(8); // Number of items to display initially
   const [exploreItems, setExploreItems] = useState([]); // Array to store fetched items from getExploreApiData call
   const [skeletonLoading, setSkeletonLoading] = useState(true); //Boolean to manage loading state i.e. Skeleton  or Data
-
 
   // Function to fetch data from the API
   // This is the Default fetch with no filtering selected
@@ -24,7 +20,6 @@ const ExploreItems = () => {
     setExploreItems(response.data); // Update state with fetched data
   };
 
-
   // Function to filter items based on a selected filter
   async function filterItems(filter) {
     setSkeletonLoading(false); // Show skeleton loader while fetching filtered data
@@ -32,10 +27,9 @@ const ExploreItems = () => {
       `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${filter}`
     );
 
-    setExploreItems(response.data);  // Update state with filtered data
+    setExploreItems(response.data); // Update state with filtered data
     setSkeletonLoading(true); // Hide skeleton loader after data is fetched
   }
-
 
   // useEffect hook to fetch data when the component mounts
   useEffect(() => {
@@ -44,7 +38,7 @@ const ExploreItems = () => {
 
   return (
     <>
-    {/* Dropdown Menu for filtering items */}
+      {/* Dropdown Menu for filtering items */}
       <div>
         <select
           id="filter-items"
@@ -70,14 +64,15 @@ const ExploreItems = () => {
             style={{ display: "block", backgroundSize: "cover" }}
           >
             <div className="nft__item">
-            {/* Author information */}
+              {/* Author information */}
               <div className="author_list_pp">
                 <Link
                   to={`/author/${item.authorId}`} // Link to the author's page
                   data-bs-toggle="tooltip"
                   data-bs-placement="top"
                 >
-                  <img className="lazy" src={item.authorImage} alt="" /> {/* Author's image */}
+                  <img className="lazy" src={item.authorImage} alt="" />{" "}
+                  {/* Author's image */}
                   <i className="fa fa-check"></i> {/* Verified icon */}
                 </Link>
               </div>
@@ -87,7 +82,9 @@ const ExploreItems = () => {
 
               {/* NFT image */}
               <div className="nft__item_wrap">
-                <Link to={`/item-details/${item.nftId}`}> {/* NFT image */}
+                <Link to={`/item-details/${item.nftId}`}>
+                  {" "}
+                  {/* NFT image */}
                   <img
                     src={item.nftImage}
                     className="lazy nft__item_preview"
@@ -98,29 +95,31 @@ const ExploreItems = () => {
 
               {/* NFT information */}
               <div className="nft__item_info">
-                <Link to={`/item-details/${item.nftId}`}> {/* Link to item details */}
+                <Link to={`/item-details/${item.nftId}`}>
+                  {" "}
+                  {/* Link to item details */}
                   <h4>{item.title}</h4> {/* Item title */}
                 </Link>
                 <div className="nft__item_price">
-                  {item.price} ETH<span>{item.date}</span> {/* Price and date */}
+                  {item.price} ETH<span>{item.date}</span>{" "}
+                  {/* Price and date */}
                 </div>
-                <div className="nft__item_like"> 
+                <div className="nft__item_like">
                   <i className="fa fa-heart"></i> {/* Like icon */}
-                  <span>{item.likes}</span>{/* Number of likes */}
+                  <span>{item.likes}</span>
+                  {/* Number of likes */}
                 </div>
               </div>
             </div>
           </div>
         ))
       ) : (
-
-         // Skeleton loaders displayed while data is being fetched
-         // A new Array of length 8 is created and filled with 0's
-         // The map()method is used to iterate over the array and genterate
-         // JSX elements dynamically.
-         // Index is used to assign a unique key to each JSX element.
+        // Skeleton loaders displayed while data is being fetched
+        // A new Array of length 8 is created and filled with 0's
+        // The map()method is used to iterate over the array and genterate
+        // JSX elements dynamically.
+        // Index is used to assign a unique key to each JSX element.
         <>
-        
           {new Array(8).fill(0).map((_, index) => (
             <div key={index} className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
               <Skeleton width="100%" height="400px" /> {/* Skeleton loader */}
@@ -128,7 +127,6 @@ const ExploreItems = () => {
           ))}
         </>
       )}
-
 
       {/* Load more button */}
       <div className="col-md-12 text-center">
@@ -147,7 +145,5 @@ const ExploreItems = () => {
   );
 };
 
-
 // Exporting the component for use in other parts of the application
 export default ExploreItems;
-

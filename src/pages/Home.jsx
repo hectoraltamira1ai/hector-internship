@@ -8,7 +8,6 @@ import TopSellers from "../components/home/TopSellers";
 
 const Home = () => {
   useEffect(() => {
-    
   }, []);
 
   return (

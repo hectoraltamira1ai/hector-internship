@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
 import Skeleton from "../UI/Skeleton";
 import OwlCarousel from "react-owl-carousel";
@@ -53,10 +51,26 @@ const NewItems = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>New Items</h2>
-              <div className="small-border bg-color-2"></div>
+              <h2
+                data-aos="fade-in"
+                data-aos-duration="1500"
+                data-aos-delay="200"
+                data-aos-offset="200"
+                data-aos-once="true"
+              >
+                New Items
+              </h2>
+            <div className="small-border bg-color-2"></div>
             </div>
           </div>
+          <div
+            data-aos="fade-in"
+            data-aos-duration="1500"
+            data-aos-delay="400"
+            data-aos-offset="200"
+            data-aos-once="true"
+            className="navigation-wrapper"
+          ></div>
 
           {/* Check if newItems array has data */}
           {newItems.length ? (
@@ -82,20 +96,19 @@ const NewItems = () => {
                   )}
                   {/* NFT item image */}
                   <div className="nft__item_wrap">
-
-                  {/* item extra code that is not being used */}
+                    {/* item extra code that is not being used */}
                     <div className="nft__item_extra">
                       <div className="nft__item_buttons">
                         <button>Buy Now</button>
                         <div className="nft__item_share">
                           <h4>Share</h4>
-                          <a href="" target="_blank" rel="noreferrer">
+                          <a href="# " target="_blank" rel="noreferrer">
                             <i className="fa fa-facebook fa-lg"></i>
                           </a>
-                          <a href="" target="_blank" rel="noreferrer">
+                          <a href="# " target="_blank" rel="noreferrer">
                             <i className="fa fa-twitter fa-lg"></i>
                           </a>
-                          <a href="">
+                          <a href="# ">
                             <i className="fa fa-envelope fa-lg"></i>
                           </a>
                         </div>
@@ -148,20 +161,19 @@ const NewItems = () => {
                       </Link>
                     </div>
                     <div className="nft__item_wrap">
-
                       {/* item extra code that is not being used */}
                       <div className="nft__item_extra">
                         <div className="nft__item_buttons">
                           <button>Buy Now</button>
                           <div className="nft__item_share">
                             <h4>Share</h4>
-                            <a href="" target="_blank" rel="noreferrer">
+                            <a href=" #" target="_blank" rel="noreferrer">
                               <i className="fa fa-facebook fa-lg"></i>
                             </a>
-                            <a href="" target="_blank" rel="noreferrer">
+                            <a href=" #" target="_blank" rel="noreferrer">
                               <i className="fa fa-twitter fa-lg"></i>
                             </a>
-                            <a href="">
+                            <a href=" #">
                               <i className="fa fa-envelope fa-lg"></i>
                             </a>
                           </div>
@@ -176,7 +188,7 @@ const NewItems = () => {
                     </div>
 
                     <div className="nft__item_info">
-                    {/* Placeholder skeleton for NFT item info */}
+                      {/* Placeholder skeleton for NFT item info */}
                       <Link to={``}>
                         <Skeleton width="180px" height="30px" />
                       </Link>
