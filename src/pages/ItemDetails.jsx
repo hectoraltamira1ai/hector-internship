@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EthImage from "../images/ethereum.svg";
 import { Link, useParams } from "react-router-dom";
-import AuthorImage from "../images/author_thumbnail.jpg";
-import nftImage from "../images/nftImage.jpg";
 import Skeleton from "../components/UI/Skeleton";
 import axios from "axios";
 
@@ -10,7 +8,7 @@ import axios from "axios";
 
 const ItemDetails = () => {
   // State to store the NFT item details
-  const [nftItem, setNftItem] = useState({});
+  const [nftItem, setNftItem] = useState("");
 
 // Extracting the NFT ID from the URL parameters
   const id = useParams().id;

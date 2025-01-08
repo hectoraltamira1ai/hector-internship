@@ -30,11 +30,23 @@ const TopSellers = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>Top Sellers</h2>
+              <h2
+                data-aos="fade-in"
+                data-aos-duration="1500"
+                data-aos-delay="200"
+                data-aos-offset="200"
+                data-aos-once="true"
+                >
+                  Top Sellers
+              </h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div className="col-md-12">
+          <div data-aos="fade-in"
+            data-aos-duration="1500"
+            data-aos-delay="400"
+            data-aos-offset="200"
+            data-aos-once="true" className="col-md-12">
             {" "}
             {/* Column for the list of top sellers */}
             {topSellers.length ? ( // Conditional rendering based on data availability (must not be 0)
